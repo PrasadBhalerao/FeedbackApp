@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FeedbackApp.Interfaces.Services;
 using FeedbackApp.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,10 +15,13 @@ namespace FeedbackApp.Controllers
         //design the user page
         //design the admin page using ng-prime
         //add authentication
-        public UserFormController()
-        {
+        private IFBAnswerService _fbAnswerService;
 
+        public UserFormController(IFBAnswerService iFBAnswerService)
+        {
+            _fbAnswerService = iFBAnswerService;
         }
+
         [HttpGet("[action]")]
         public UserFormData Get()
         {

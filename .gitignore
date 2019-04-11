@@ -1,2 +1,8 @@
 #.vs
+
 .vs/*
+
+*.suo
+.vs\config\applicationhost.config
+.vs\FeedbackApp
+

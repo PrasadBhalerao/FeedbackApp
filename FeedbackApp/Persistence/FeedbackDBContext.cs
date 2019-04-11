@@ -5,10 +5,11 @@ using System.Threading.Tasks;
 using System.Data;
 using Microsoft.EntityFrameworkCore;
 using FeedbackApp.Persistence.Models;
+using FeedbackApp.Interfaces.Persistence;
 
 namespace FeedbackApp.Persistence
 {
-    public class FeedbackDBContext : DbContext
+    public class FeedbackDBContext : DbContext, IFeedbackDBContext
     {
         public FeedbackDBContext(DbContextOptions options) : base(options)
         {
@@ -16,5 +17,20 @@ namespace FeedbackApp.Persistence
         }
         public DbSet<FBQuestion> FBQuestions { get; set; }
         public DbSet<FBAnswer> FBAnswers { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<FBQuestion>().HasData(
+                new FBQuestion() { KeyID = 1, Question = "How was your exp1?" },
+                new FBQuestion() { KeyID = 2, Question = "How was your exp2?" },
+                new FBQuestion() { KeyID = 3, Question = "How was your exp3?" },
+                new FBQuestion() { KeyID = 4, Question = "How was your exp4?" },
+                new FBQuestion() { KeyID = 5, Question = "How was your exp5?" },
+                new FBQuestion() { KeyID = 6, Question = "How was your exp6?" },
+                new FBQuestion() { KeyID = 7, Question = "How was your exp7?" });
+
+            base.OnModelCreating(modelBuilder);
+
+        }
     }
 }

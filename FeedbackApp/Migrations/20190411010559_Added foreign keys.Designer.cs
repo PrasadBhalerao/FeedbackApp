@@ -3,14 +3,16 @@ using FeedbackApp.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FeedbackApp.Migrations
 {
     [DbContext(typeof(FeedbackDBContext))]
-    partial class FeedbackDBContextModelSnapshot : ModelSnapshot
+    [Migration("20190411010559_Added foreign keys")]
+    partial class Addedforeignkeys
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -47,43 +49,6 @@ namespace FeedbackApp.Migrations
                     b.HasKey("KeyID");
 
                     b.ToTable("FBQuestions");
-
-                    b.HasData(
-                        new
-                        {
-                            KeyID = 1,
-                            Question = "How was your exp1?"
-                        },
-                        new
-                        {
-                            KeyID = 2,
-                            Question = "How was your exp2?"
-                        },
-                        new
-                        {
-                            KeyID = 3,
-                            Question = "How was your exp3?"
-                        },
-                        new
-                        {
-                            KeyID = 4,
-                            Question = "How was your exp4?"
-                        },
-                        new
-                        {
-                            KeyID = 5,
-                            Question = "How was your exp5?"
-                        },
-                        new
-                        {
-                            KeyID = 6,
-                            Question = "How was your exp6?"
-                        },
-                        new
-                        {
-                            KeyID = 7,
-                            Question = "How was your exp7?"
-                        });
                 });
 
             modelBuilder.Entity("FeedbackApp.Persistence.Models.User", b =>

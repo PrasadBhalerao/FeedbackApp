@@ -7,15 +7,24 @@ import { Http } from '@angular/http';
     styleUrls: ['./userform.component.css']
 })
 export class UserFormComponent{
-    public text = "hello world"
-
-    public userFormData: UserFormData; 
+    public userFormData: UserFormData;
+    private _http: Http;
+    private _baseUrl: string;
 
     constructor(http: Http, @Inject('BASE_URL') baseUrl: string) {
-        http.get(baseUrl + 'api/UserForm/Get').subscribe(result => {
+        this._http = http;
+        this._baseUrl = baseUrl;
+        http.get(baseUrl + 'api/UserForm/Get/1').subscribe(result => {
             console.log(result, 'res');
             this.userFormData = result.json() as UserFormData;
             console.log(this.userFormData, 'userform');
+        }, error => console.log(error));
+    }
+
+    onSubmit(){
+        console.log("clicked");
+        this._http.post(this._baseUrl + 'api/UserForm', this.userFormData).subscribe(result => {
+            console.log(result, 'res');
         }, error => console.log(error));
     }
 }

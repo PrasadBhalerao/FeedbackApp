@@ -1,5 +1,16 @@
-﻿<div>        
-        <div class='formBorder'>
-            {{text}}
+﻿<div class="container" style="width:auto">
+    <h1>Feedback Form</h1>
+    <form *ngIf="userFormData" #userForm="ngForm" (ngSubmit)="onSubmit()">
+        <div *ngFor="let questionModel of userFormData.questionsList" class="form-group">
+            <label for="name">{{questionModel.question}}</label>
+            <input type="text" class="form-control" 
+                   [id]="'ans-' + questionModel.answerId" 
+                   [name]="'ans-' + questionModel.answerId" 
+                   [(ngModel)]="questionModel.answer" required #inputName="ngModel">
+            <div [hidden]="inputName.valid || inputName.pristine" class="alert alert-danger">Response is needed</div>
         </div>
-</div>
+
+        <button type="submit" class="btn btn-success" [disabled]="!userForm.form.valid">Submit</button>
+
+    </form>
+</div> 

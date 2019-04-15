@@ -20,7 +20,7 @@ namespace FeedbackApp.Persistence
 
             var builder = new DbContextOptionsBuilder<FeedbackDBContext>();
 
-            var connectionString = configuration.GetConnectionString("LocalPC");
+            var connectionString = configuration.GetConnectionString("DefaultConnection");
 
             builder.UseSqlServer(connectionString);
 

@@ -9,6 +9,7 @@ namespace FeedbackApp.ViewModels
     {
         public string UserName { get; set; }
         public List<QuestionViewModel> QuestionsList { get; set; }
+        public int UserId { get; set; }
     }
 
     public class QuestionViewModel

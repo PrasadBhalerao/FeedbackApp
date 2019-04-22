@@ -19,11 +19,24 @@ export class UserFormComponent {
 
     getFormData() {
         this._http.get(this._baseUrl + 'api/UserForm/Get/1').subscribe(result => {
-            this.userFormData = result.json() as UserFormData;
+            var data = result.json() as UserFormData;
+            var count = 0;
+            data.questionsList.forEach((x: QuestionViewModel) => {
+                if (x.answerId == 0) {
+                    x.answerId = count;
+                    count--;
+                }
+            });
+            this.userFormData = data;
         }, error => console.log(error));
     }
 
     onSubmit() {
+        this.userFormData.questionsList.forEach((x) => {
+            if (x.answerId < 0) {
+                x.answerId = 0;
+            }
+        });
         this._http.post(this._baseUrl + 'api/UserForm', this.userFormData).subscribe(result => {
             this.getFormData();
         }, error => console.log(error));
@@ -31,8 +44,8 @@ export class UserFormComponent {
 }
 
 class UserFormData {
-    UserName: string;
-    QuestionsList: QuestionViewModel[];
+    userName: string;
+    questionsList: QuestionViewModel[];
 }
 
 class QuestionViewModel {

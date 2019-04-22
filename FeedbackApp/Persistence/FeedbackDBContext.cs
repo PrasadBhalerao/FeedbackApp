@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Data;
-using Microsoft.EntityFrameworkCore;
 using FeedbackApp.Persistence.Models;
 using FeedbackApp.Interfaces.Persistence;
+using Microsoft.EntityFrameworkCore;
 
 namespace FeedbackApp.Persistence
 {
@@ -17,6 +17,7 @@ namespace FeedbackApp.Persistence
         }
         public DbSet<FBQuestion> FBQuestions { get; set; }
         public DbSet<FBAnswer> FBAnswers { get; set; }
+        public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -28,6 +29,9 @@ namespace FeedbackApp.Persistence
                 new FBQuestion() { KeyID = 5, Question = "How was your exp5?" },
                 new FBQuestion() { KeyID = 6, Question = "How was your exp6?" },
                 new FBQuestion() { KeyID = 7, Question = "How was your exp7?" });
+
+            modelBuilder.Entity<User>().HasData(
+                new User() { KeyID = 1, UserName = "Prasad Bhalerao" });
 
             base.OnModelCreating(modelBuilder);
 

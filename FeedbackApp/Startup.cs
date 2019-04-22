@@ -30,7 +30,7 @@ namespace FeedbackApp
             services.AddMvc();
 
             services.AddDbContext<IFeedbackDBContext, FeedbackDBContext>(x =>
-            x.UseSqlServer(Configuration["ConnectionStrings:LocalPC"]));
+            x.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
 
             services.AddScoped<IFBAnswerService, FBAnswerService>();
         }
@@ -48,7 +48,7 @@ namespace FeedbackApp
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                //app.UseExceptionHandler("/Home/Error");
             }
 
             app.UseStaticFiles();

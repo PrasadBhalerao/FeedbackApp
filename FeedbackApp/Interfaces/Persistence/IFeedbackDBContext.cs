@@ -11,5 +11,7 @@ namespace FeedbackApp.Interfaces.Persistence
     {
         DbSet<FBQuestion> FBQuestions { get; set; }
         DbSet<FBAnswer> FBAnswers { get; set; }
+        DbSet<User> Users { get; set; }
+        int SaveChanges();
     }
 }

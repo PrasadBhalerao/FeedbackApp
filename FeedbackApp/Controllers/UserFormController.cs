@@ -22,9 +22,9 @@ namespace FeedbackApp.Controllers
             _fbAnswerService = iFBAnswerService;
         }
 
-        [Route("/Get/id")]
-        [HttpGet("id")]
-        public UserFormData Get([FromRoute] int id)
+        [HttpGet]
+        [Route("Get/{id}")]
+        public UserFormData Get([FromRoute]int id)
         {
             var data = new UserFormData()
             {

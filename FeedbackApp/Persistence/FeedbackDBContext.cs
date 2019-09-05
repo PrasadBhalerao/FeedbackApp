@@ -22,13 +22,13 @@ namespace FeedbackApp.Persistence
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<FBQuestion>().HasData(
-                new FBQuestion() { KeyID = 1, Question = "How was your exp1?" },
-                new FBQuestion() { KeyID = 2, Question = "How was your exp2?" },
-                new FBQuestion() { KeyID = 3, Question = "How was your exp3?" },
-                new FBQuestion() { KeyID = 4, Question = "How was your exp4?" },
-                new FBQuestion() { KeyID = 5, Question = "How was your exp5?" },
-                new FBQuestion() { KeyID = 6, Question = "How was your exp6?" },
-                new FBQuestion() { KeyID = 7, Question = "How was your exp7?" });
+                new FBQuestion() { KeyID = 1, Question = "How do you rate your experience with C#?" },
+                new FBQuestion() { KeyID = 3, Question = "How do you rate your experience with Java?" },
+                new FBQuestion() { KeyID = 2, Question = "How do you rate your experience with Javascript?" },
+                new FBQuestion() { KeyID = 4, Question = "How do you rate your experience with AngularJS?" },
+                new FBQuestion() { KeyID = 5, Question = "How do you rate your experience with Angular?" },
+                new FBQuestion() { KeyID = 6, Question = "How do you rate your experience with SQL?" },
+                new FBQuestion() { KeyID = 7, Question = "How do you rate your experience with MongoDB?" });
 
             modelBuilder.Entity<User>().HasData(
                 new User() { KeyID = 1, UserName = "Prasad Bhalerao" });

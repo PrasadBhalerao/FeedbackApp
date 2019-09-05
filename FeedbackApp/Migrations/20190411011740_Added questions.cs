@@ -11,13 +11,13 @@ namespace FeedbackApp.Migrations
                 columns: new[] { "KeyID", "Question" },
                 values: new object[,]
                 {
-                    { 1, "How was your exp1?" },
-                    { 2, "How was your exp2?" },
-                    { 3, "How was your exp3?" },
-                    { 4, "How was your exp4?" },
-                    { 5, "How was your exp5?" },
-                    { 6, "How was your exp6?" },
-                    { 7, "How was your exp7?" }
+                    { 1, "How do you rate your experience with C#?" },
+                    { 2, "How do you rate your experience with Java?" },
+                    { 3, "How do you rate your experience with Javascript?" },
+                    { 4, "How do you rate your experience with AngularJS?" },
+                    { 5, "How do you rate your experience with Angular?" },
+                    { 6, "How do you rate your experience with SQL?" },
+                    { 7, "How do you rate your experience with MongoDB?" }
                 });
         }
 
